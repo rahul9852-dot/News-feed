@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import {NgModule} from "@angular/core";
 import {HttpClientModule} from '@angular/common/http';
 import {NewsApiService} from './news-api.service';
+import {MatStepperModule} from '@angular/material/stepper';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -27,6 +29,7 @@ import {NewsApiService} from './news-api.service';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    MatStepperModule
   ],
   providers: [NewsApiService],
   bootstrap: [AppComponent]

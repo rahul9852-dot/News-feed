@@ -29,7 +29,7 @@
         </mat-list>
     </mat-sidenav>
 
-    <mat-card class="example-card" *ngFor="let article of mArticles">
+    <mat-card class="example-card" *ngFor="let article of mArticles; let i = index">
         <mat-card-header>
             <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ article.source.id +'.png)'}" class="example-header-image"></div>
             <mat-card-title class="title">
@@ -47,16 +47,20 @@
         </mat-card-content>
 
         <mat-card-actions class="action-buttons">
-            <button mat-button color="primary">
+            <button mat-button color="primary" (click)="increment(i)">
                 <mat-icon>thumb_up_alt</mat-icon>
-                12 likes
+                <span>{{article.likes}} likes</span>
+            </button>
+
+            <button mat-button color="primary" (click)="decrement(i)">
+                <mat-icon>thumb_down_alt</mat-icon>
+                <span>{{article.dislikes}} dislikes</span>
             </button>
 
             <button mat-button color="primary">
-                <mat-icon>thumb_down_alt</mat-icon>
-                5 dislikes
+                <mat-icon>share</mat-icon>
+                Share
             </button>
-
             <button mat-button color="primary">
                 <mat-icon>comment</mat-icon>
                 Comments
@@ -67,6 +71,7 @@
                 Share
             </button>
         </mat-card-actions>
+        
 
     </mat-card>
 
